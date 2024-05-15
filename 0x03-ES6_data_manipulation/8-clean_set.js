@@ -1,14 +1,10 @@
-function cleanSet(set, startString) {
-  if (typeof startString !== 'string' || startString.length === 0) {
-    return '';
-  }
-  const result = [];
-  set.forEach((value) => {
-    if (value.startsWith(startString) && typeof value === 'string') {
-      result.push(value.slice(startString.length));
+export default function cleanSet(set, startString) {
+  const setRet = [];
+  if (startString === '' || typeof startString !== 'string') return '';
+  set.forEach((v) => {
+    if (typeof v === 'string' && v.startsWith(startString)) {
+      setRet.push(v.slice(startString.length));
     }
   });
-  return result.join('-');
+  return setRet.join('-');
 }
-
-export default cleanSet;
