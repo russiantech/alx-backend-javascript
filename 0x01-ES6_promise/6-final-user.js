@@ -1,8 +1,8 @@
-// 6-final-user.js
+// 6-final-user.js / handleProfileSignup;
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
-function handleProfileSignup(firstName, lastName, fileName) {
+export default function handleProfileSignup(firstName, lastName, fileName) {
   const promises = [
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
@@ -14,5 +14,3 @@ function handleProfileSignup(firstName, lastName, fileName) {
       value: result.status === 'fulfilled' ? result.value : result.reason.message,
     })));
 }
-
-export default handleProfileSignup;
