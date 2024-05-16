@@ -1,6 +1,6 @@
 // 6-sky_high.js
 
-import Building from './5-building.js';
+import Building from './5-building'; // Remove file extension
 
 export default class SkyHighBuilding extends Building {
   constructor(sqft, floors) {
@@ -16,4 +16,3 @@ export default class SkyHighBuilding extends Building {
     return `Evacuate slowly the ${this._floors} floors`;
   }
 }
-
