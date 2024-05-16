@@ -1,20 +1,26 @@
 // 100-evcar.js
+//
+/* eslint-disable no-underscore-dangle */
 
-import Car from './10-car'; // Remove file extension
-
-const rangeSymbol = Symbol('range');
+import Car from './10-car';
 
 export default class EVCar extends Car {
   constructor(brand, motor, color, range) {
     super(brand, motor, color);
-    this[rangeSymbol] = range;
+    this.range = range;
   }
 
   get range() {
-    return this[rangeSymbol];
+    return this._range;
+  }
+
+  set range(value) {
+    this._range = value;
   }
 
   cloneCar() {
-    return new Car(this._brand, this._motor, this._color);
+    const Species = super.constructor[Symbol.species];
+
+    return new Species();
   }
 }
