@@ -1,6 +1,6 @@
 // 100-evcar.js
 
-import Car from './10-car.js';
+import Car from './10-car'; // Remove file extension
 
 const rangeSymbol = Symbol('range');
 
