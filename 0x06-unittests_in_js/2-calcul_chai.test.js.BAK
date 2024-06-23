@@ -1,0 +1,171 @@
+const { expect } = require('chai');
+const calculateNumber = require('./2-calcul_chai');
+
+// Test suite for calculateNumber function
+describe('calculateNumber', () => {
+  
+  // Tests for type 'SUM'
+  describe('type == "SUM"', () => {
+    // Test case: adding two positive numbers
+    it('equal positive numbers', () => {
+      expect(calculateNumber('SUM', 2.0, 2.0)).to.equal(4);
+    });
+
+    // Test case: adding two positive numbers (alternate values)
+    it('equal positive numbers (alternate)', () => {
+      expect(calculateNumber('SUM', 2.3, 1.8)).to.equal(4);
+    });
+
+    // Test case: adding two negative numbers
+    it('equal negative numbers', () => {
+      expect(calculateNumber('SUM', -2.0, -2.0)).to.equal(-4);
+    });
+
+    // Test case: adding two negative numbers (alternate values)
+    it('equal negative numbers (alternate)', () => {
+      expect(calculateNumber('SUM', -2.3, -1.8)).to.equal(-4);
+    });
+
+    // Test case: adding a negative and a positive number
+    it('negative and positive numbers', () => {
+      expect(calculateNumber('SUM', -2.0, 2.0)).to.equal(0);
+    });
+
+    // Test case: adding a positive and a negative number
+    it('positive and negative numbers', () => {
+      expect(calculateNumber('SUM', 2.0, -2.0)).to.equal(0);
+    });
+
+    // Test case: adding zero to zero
+    it('0 and 0', () => {
+      expect(calculateNumber('SUM', 0.0, 0.0)).to.equal(0);
+    });
+  });
+
+  // Tests for type 'SUBTRACT'
+  describe('type == "SUBTRACT"', () => {
+    // Test case: subtracting equal positive numbers
+    it('equal positive numbers', () => {
+      expect(calculateNumber('SUBTRACT', 2.0, 2.0)).to.equal(0);
+    });
+
+    // Test case: subtracting equal positive numbers (alternate values)
+    it('equal positive numbers (alternate)', () => {
+      expect(calculateNumber('SUBTRACT', 2.3, 1.8)).to.equal(0);
+    });
+
+    // Test case: subtracting equal negative numbers
+    it('equal negative numbers', () => {
+      expect(calculateNumber('SUBTRACT', -2.0, -2.0)).to.equal(0);
+    });
+
+    // Test case: subtracting equal negative numbers (alternate values)
+    it('equal negative numbers (alternate)', () => {
+      expect(calculateNumber('SUBTRACT', -2.3, -1.8)).to.equal(0);
+    });
+
+    // Test case: subtracting a positive from a negative number
+    it('negative and positive numbers', () => {
+      expect(calculateNumber('SUBTRACT', -2.0, 2.0)).to.equal(-4.0);
+    });
+
+    // Test case: subtracting a negative from a positive number
+    it('positive and negative numbers', () => {
+      expect(calculateNumber('SUBTRACT', 2.0, -2.0)).to.equal(4.0);
+    });
+
+    // Test case: subtracting zero from zero
+    it('0 and 0', () => {
+      expect(calculateNumber('SUBTRACT', 0.0, 0.0)).to.equal(0);
+    });
+  });
+
+  // Tests for type 'DIVIDE'
+  describe('type == "DIVIDE"', () => {
+    // Test case: dividing two positive numbers
+    it('positive numbers', () => {
+      expect(calculateNumber('DIVIDE', 8.0, 2.0)).to.equal(4.0);
+    });
+
+    // Test case: dividing numbers with different signs
+    it('numbers with different signs', () => {
+      expect(calculateNumber('DIVIDE', -7.0, 2.0)).to.equal(-3.5);
+    });
+
+    // Test case: dividing numbers with different signs (alternate values)
+    it('numbers with different signs (alternate)', () => {
+      expect(calculateNumber('DIVIDE', 7.0, -2.0)).to.equal(-3.5);
+    });
+
+    // Test case: dividing two negative numbers
+    it('negative numbers', () => {
+      expect(calculateNumber('DIVIDE', -7.0, -2.0)).to.equal(3.5);
+    });
+
+    // Test case: dividing equal positive numbers
+    it('equal positive numbers', () => {
+      expect(calculateNumber('DIVIDE', 2.0, 2.0)).to.equal(1);
+    });
+
+    // Test case: dividing equal negative numbers
+    it('equal negative numbers', () => {
+      expect(calculateNumber('DIVIDE', -2.0, -2.0)).to.equal(1);
+    });
+
+    // Test case: dividing rounded up numbers
+    it('equal rounded up numbers', () => {
+      expect(calculateNumber('DIVIDE', 2.6, 3.0)).to.equal(1);
+    });
+
+    // Test case: dividing rounded down numbers
+    it('equal rounded down numbers', () => {
+      expect(calculateNumber('DIVIDE', 2.4, 2.0)).to.equal(1);
+    });
+
+    // Test case: dividing zero by a positive number
+    it('0 and positive number', () => {
+      expect(calculateNumber('DIVIDE', 0.0, 5.0)).to.equal(0);
+    });
+
+    // Test case: dividing zero by a negative number
+    it('0 and negative number', () => {
+      expect(calculateNumber('DIVIDE', 0.0, -5.0)).to.equal(-0);
+    });
+
+    // Test case: dividing a positive number by zero
+    it('positive number and 0', () => {
+      expect(calculateNumber('DIVIDE', 5.0, 0)).to.equal('Error');
+    });
+
+    // Test case: dividing a positive number by a number rounded down to zero
+    it('positive number and number rounded down to 0', () => {
+      expect(calculateNumber('DIVIDE', 5.0, 0.2)).to.equal('Error');
+    });
+
+    // Test case: dividing a positive number by a number rounded up to zero
+    it('positive number and number rounded up to 0', () => {
+      expect(calculateNumber('DIVIDE', 5.0, -0.2)).to.equal('Error');
+    });
+
+    // Test case: dividing a negative number by zero
+    it('negative number and 0', () => {
+      expect(calculateNumber('DIVIDE', -5.0, 0)).to.equal('Error');
+    });
+
+    // Test case: dividing a negative number by a number rounded down to zero
+    it('negative number and number rounded down to zero', () => {
+      expect(calculateNumber('DIVIDE', -5.0, 0.2)).to.equal('Error');
+    });
+
+    // Test case: dividing a negative number by a number rounded up to zero
+    it('negative number and number rounded up to zero', () => {
+      expect(calculateNumber('DIVIDE', -5.0, -0.2)).to.equal('Error');
+    });
+
+    // Test case: dividing zero by zero
+    it('0 and 0', () => {
+      expect(calculateNumber('DIVIDE', 0.0, 0.0)).to.equal('Error');
+    });
+  });
+});
+

@@ -1,0 +1,20 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Curriculum Short Specializations Average: 99.84% 0x06. Unittests in JS UnitTests Back-end JavaScript ES6 NodeJS ExpressJS Mocha  Weight: 1  Project will start Jun 19, 2024 6:00 AM, must end by Jun 21, 2024 6:00 AM  Checker was released at Jun 19, 2024 6:00 PM  An auto review will be launched at the deadline",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/mocha --require babel-register --exit /0x06-unittests_in_js/2-calcul_chai.test.js"
+  },
+  "keywords": [],
+  "author": "student-developer ^ chris james",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0"
+  },
+  "dependencies": {
+    "babel-register": "^6.26.0"
+  }
+}
